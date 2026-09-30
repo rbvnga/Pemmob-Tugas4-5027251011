@@ -75,4 +75,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return rows;
     }
+
+    public Cursor getAllMahasiswa() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        return db.query(
+                TABLE_MHS,
+                new String[]{COL_NRP, COL_NAMA, COL_PRODI},
+                null,
+                null,
+                null,
+                null,
+                COL_NAMA + " ASC"
+        );
+    }
 }
